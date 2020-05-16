@@ -22,5 +22,6 @@ class WeatherPreprocessor:
         """ create datetime index based on local_time,
         and resampled mean per hour"""
         df["timestamp"] = pd.to_datetime(df["local_time"])
+        df["timestamp"] = df["timestamp"] - pd.Timedelta('1 hour')
         df.set_index(df["timestamp"], inplace=True)
         return df.resample("h").mean()
