@@ -39,4 +39,4 @@ class PlantPreprocessor:
             df.set_index(df["timestamp_ch"], inplace=True)
         else:
             print("local_time error")
-        return df.resample("h").mean()
+        return df.resample("h").mean().ffill()
