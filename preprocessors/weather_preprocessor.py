@@ -9,8 +9,8 @@ class WeatherPreprocessor:
         self.df_raw = pd.read_csv(path_to_weather)
         df_formatted_columns = self._format_columns(self.df_raw)
         df_formatted_datetime = self._format_datetime(df_formatted_columns)
-        self.df_indexed_ch = self._set_datetime_index(df_formatted_datetime)
-        self.df_indexed_utc = self._set_datetime_index(df_formatted_datetime)
+        self.df_indexed_ch = self._set_datetime_index(df_formatted_datetime.copy(), local_time=True)
+        self.df_indexed_utc = self._set_datetime_index(df_formatted_datetime, local_time=False)
 
     @classmethod
     def _format_columns(cls, df):
@@ -30,13 +30,13 @@ class WeatherPreprocessor:
         return df
 
     @classmethod
-    def _set_datetime_index(cls, df, local_time=True):
+    def _set_datetime_index(cls, df, local_time):
         """ create datetime index based on local_time or utc,
         and resample mean per hour"""
         if local_time:
-            df.set_index(df["timestamp_utc"], inplace=True)
-        elif not local_time:
-            df.set_index(df["timestamp_ch"], inplace=True)
+            df = (df.set_index(df["timestamp_ch"])
+                    .drop(columns=["timestamp_utc"]))
         else:
-            print("local_time error")
+            df = (df.set_index(df["timestamp_utc"])
+                    .drop(columns=["timestamp_ch"]))
         return df.resample("h").mean().ffill()
