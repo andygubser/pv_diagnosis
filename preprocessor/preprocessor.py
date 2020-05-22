@@ -1,14 +1,15 @@
 import pandas as pd
 
 
-class WeatherPreprocessor:
+class Preprocessor:
     """ input: raw dataframe of weather data,
     output: preprocessed dataframe with hourly datetimeindex """
 
-    def __init__(self, path_to_weather):
+    def __init__(self, path_to_weather, local_time_column):
         self.df_raw = pd.read_csv(path_to_weather)
         df_formatted_columns = self._format_columns(self.df_raw)
-        df_formatted_datetime = self._format_datetime(df_formatted_columns)
+        df_formatted_datetime = self._format_datetime(df_formatted_columns,
+                                                      local_time_column)
         self.df_indexed_ch = self._set_datetime_index(df_formatted_datetime)
         self.df_indexed_utc = self._set_datetime_index(df_formatted_datetime)
 
@@ -20,22 +21,25 @@ class WeatherPreprocessor:
         return df
 
     @classmethod
-    def _format_datetime(cls, df):
-        df["timestamp_ch"] = pd.to_datetime(df["local_time"]). \
-            dt.tz_localize("Europe/Zurich",
-                           ambiguous="NaT",
+    def _format_datetime(cls, df, local_time_column):
+        df["timestamp_ch"] = \
+            pd.to_datetime(df[local_time_column]).\
+            dt.tz_localize(tz="Europe/Zurich",
+                           ambiguous=True,
                            nonexistent="NaT")
-        df["timestamp_utc"] = df["timestamp_ch"].\
+        df["timestamp_utc"] = \
+            df["timestamp_ch"]. \
             dt.tz_convert("UTC")
+        df.ffill(inplace=True)
         return df
 
     @classmethod
-    def _set_datetime_index(cls, df, local_time=True):
+    def _set_datetime_index(cls, df, utc_time=True):
         """ create datetime index based on local_time or utc,
         and resample mean per hour"""
-        if local_time:
+        if utc_time:
             df.set_index(df["timestamp_utc"], inplace=True)
-        elif not local_time:
+        elif not utc_time:
             df.set_index(df["timestamp_ch"], inplace=True)
         else:
             print("local_time error")
