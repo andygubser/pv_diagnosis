@@ -38,9 +38,9 @@ class Preprocessor:
         """ create datetime index based on local_time or utc,
         and resample mean per hour"""
         if utc_time:
-            df.set_index(df["timestamp_utc"], inplace=True)
-        elif not utc_time:
-            df.set_index(df["timestamp_ch"], inplace=True)
+            df = (df.set_index(df["timestamp_utc"])
+                    .drop(columns=["timestamp_ch"]))
         else:
-            print("local_time error")
-        return df.resample("h").mean()
+            df = (df.set_index(df["timestamp_ch"])
+                    .drop(columns=["timestamp_utc"]))
+        return df.resample("h").mean().ffill()
