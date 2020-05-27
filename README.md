@@ -1,7 +1,10 @@
 # pv_diagnosis
 
+View and run the notebooks on:
+
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andygubser/pv_diagnosis/blob/master)
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/andygubser/pv_diagnosis/master)
+[<img height="22"  src="https://beta.deepnote.com/buttons/launch-in-deepnote.svg">](https://beta.deepnote.com/launch?template=data-science&url=https%3A//github.com/andygubser/pv_diagnosis)
 [![nbviewer](https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg)](https://nbviewer.jupyter.org/github/andygubser/pv_diagnosis/tree/master/)
 
 ## Goal
