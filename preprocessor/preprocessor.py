@@ -2,7 +2,7 @@ import pandas as pd
 
 
 class Preprocessor:
-    """ input: raw dataframe of weather data,
+    """ input: the raw dataframe of weather or power plant data,
     output: preprocessed dataframe with hourly datetimeindex """
 
     def __init__(self, path_to_data, local_time_column, resampling_method):
