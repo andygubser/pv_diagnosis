@@ -1,4 +1,4 @@
-# pv_diagnosis
+# Photovoltaic Predictive Maintenance Analysis
 
 View and run the notebooks on:
 
