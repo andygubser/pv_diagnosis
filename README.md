@@ -1,5 +1,7 @@
 # Photovoltaic Predictive Maintenance Analysis
 
+_(This was a group project for our MSc in Data Science)_
+
 View and run the notebooks on:
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hohlb/pv_diagnosis/blob/master/index.ipynb)
