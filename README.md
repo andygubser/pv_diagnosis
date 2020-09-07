@@ -1,6 +1,6 @@
 # Photovoltaic Predictive Maintenance Analysis
 
-_(This was a group project for our MSc in Data Science)_
+_This was a group project from [@andygubser](https://github.com/andygubser), [@pat-sommer](https://github.com/pat-sommer), [@jzihlmann](https://github.com/jzihlmann), and me ([@hohlb](https://github.com/hohlb))_
 
 View and run the notebooks on:
 
