@@ -1,11 +1,13 @@
-# pv_diagnosis
+# Photovoltaic Predictive Maintenance Analysis
+
+_This was a group project from [@andygubser](https://github.com/andygubser), [@pat-sommer](https://github.com/pat-sommer), [@jzihlmann](https://github.com/jzihlmann), and me ([@hohlb](https://github.com/hohlb))_
 
 View and run the notebooks on:
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/andygubser/pv_diagnosis/blob/master)
-[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/andygubser/pv_diagnosis/master)
-[<img height="20"  src="https://beta.deepnote.com/buttons/launch-in-deepnote.svg">](https://beta.deepnote.com/launch?template=data-science&url=https%3A//github.com/andygubser/pv_diagnosis/blob/master)
-[![nbviewer](https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg)](https://nbviewer.jupyter.org/github/andygubser/pv_diagnosis/tree/master/)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hohlb/pv_diagnosis/blob/master/index.ipynb)
+[![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hohlb/pv_diagnosis/master?filepath=index.ipynb)
+[<img height="20"  src="https://beta.deepnote.com/buttons/launch-in-deepnote.svg">](https://beta.deepnote.com/launch?template=data-science&url=https%3A//github.com/hohlb/pv_diagnosis/blob/master/index.ipynb)
+[![nbviewer](https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg)](https://nbviewer.jupyter.org/github/hohlb/pv_diagnosis/tree/master/index.ipynb)
 
 ## Goal
 In case of large-scale renewable energy plants, production output is regularly reviewed to ensure ROI. This is different for small plants. By comparing predicted production based on past meteorological data with actual production of a PV power plant, we estimate plant's condition and predict next required maintenance. The analysis detects performance losses and, therby, enhances economic profits. This task was part of the Energy Hackdays 2019 (https://hack.opendata.ch/project/284). 
